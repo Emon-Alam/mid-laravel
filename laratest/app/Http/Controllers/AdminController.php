@@ -75,6 +75,23 @@ class AdminController extends Controller
         return view('home.delete')->with('user', $user);
     }
 
+    public function cdelete($id){
+
+        $user = Category::find($id);
+        return view('home.mdelete')->with('user', $user);
+    }
+
+    public function cdestroy($id, Request $req){
+
+        if( Category::destroy($id)){
+            $req->session()->flash('msg', 'content removed successfully...');
+            return redirect()->route('logout');
+        }else{
+            return redirect('/home/delete/category/'.$id);
+        }
+
+    } 
+
     public function destroy($id, Request $req){
 
         if(Moderator::destroy($id)){

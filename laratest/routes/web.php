@@ -49,6 +49,9 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/home/list/content', 'AdminController@Clist')->name('clist');
 
+    Route::get('/home/delete/category/{id}', 'AdminController@cdelete')->name('cdelete');
+    Route::post('/home/delete/category/{id}', 'AdminController@cdestroy');
+
 });
 Route::group(['middleware'=>'moderator'],function(){
 
@@ -60,6 +63,9 @@ Route::group(['middleware'=>'moderator'],function(){
     Route::post('/home/create/content', 'AdminController@store');
 
     Route::get('/home/list/content', 'AdminController@Clist')->name('clist');
+
+    Route::get('/home/delete/category/{id}', 'AdminController@cdelete')->name('cdelete');
+    Route::post('/home/delete/category/{id}', 'AdminController@cdestroy');
 });
 
 });
