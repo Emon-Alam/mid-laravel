@@ -15,12 +15,19 @@ class AdminController extends Controller
 
     } 
 
-   public function show($id){
-    
-        $user = Admin::find($id);
-      
-        return view('home.details')->with('user', $user);
+    public function show(Request $req){
 
+         
+        $name = Admin::all();
+        
+
+        $value = $req->session()->get('username');
+        $show = Admin::where('username','=',$value)->get();  
+        return view('home.profile')->with('list', $show)->with('name',$name); 
+
+        /* $name = Moderator::all();
+        return view('home.list')->with('list', $name);
+ */
     }
 
     public function userlist(Request $req){

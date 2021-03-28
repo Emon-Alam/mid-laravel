@@ -37,6 +37,8 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/registration', 'RegController@index')->name('registration');
     Route::post('/registration', 'RegController@store')->name('reg');
 
+    Route::get('/home/admin/Profile', 'AdminController@show')->name('Aprofile');
+
     Route::get('/home/list/moderator', 'AdminController@userlist')->name('moderator.userlist');
 
     Route::get('/home/delete/moderator/{id}', 'AdminController@delete')->name('moderator.delete');
@@ -46,7 +48,7 @@ Route::group(['middleware'=>'admin'],function(){
 Route::group(['middleware'=>'moderator'],function(){
 
     Route::get('/home', 'HomeController@index')->name('index');
-    
+    Route::get('/home/moderator/Profile', 'ModeratorController@show')->name('profile');
 });
 
 });

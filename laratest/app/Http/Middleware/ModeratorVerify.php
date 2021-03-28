@@ -31,7 +31,7 @@ class ModeratorVerify
         else
         {
             $request->session()->flash('errorMsg','Session M Validation Error!');
-            return redirect()->route('login');
+            return redirect()->route('index');
 
         }
     }

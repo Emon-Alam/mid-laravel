@@ -26,7 +26,7 @@ class AdminV
         else
         {
             $request->session()->flash('errorMsg','Session  A Validation Error!');
-            return redirect()->route('login');
+            return redirect()->route('index');
 
         }
     
