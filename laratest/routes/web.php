@@ -27,17 +27,27 @@ Route::get('/logout', 'LogoutController@index')->name('logout');
 Route::get('/registration', 'RegController@index')->name('registration');
 Route::post('/registration', 'RegController@store')->name('reg');
 
-Route::group(['middleware'=> 'sess'], function(){
+Route::group(['middleware'=>'sess'],function(){
 
-    Route::group(['middleware'=>'admin'],function(){
+Route::group(['middleware'=>'admin'],function(){
+  
 
     Route::get('/home', 'HomeController@index')->name('index');
+
     Route::get('/registration', 'RegController@index')->name('registration');
     Route::post('/registration', 'RegController@store')->name('reg');
+
+    Route::get('/home/list/moderator', 'AdminController@userlist')->name('moderator.userlist');
+
+    Route::get('/home/delete/moderator/{id}', 'AdminController@delete')->name('moderator.delete');
+    Route::post('/home/delete/moderator/{id}', 'AdminController@destroy');
+
 });
 Route::group(['middleware'=>'moderator'],function(){
 
     Route::get('/home', 'HomeController@index')->name('index');
     
 });
+
 });
+

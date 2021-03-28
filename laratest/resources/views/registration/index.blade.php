@@ -48,9 +48,7 @@
                             </div>
                         </div> 
                         <tr>
-					<!-- <td>User Type</td>
-					<td><input type="text" name="type" value="{{old('type')}}"></td>
-				</tr> -->
+				
 				<tr>
 					<td></td>
 					<td><input type="submit" name="submit" value="Save"></td>

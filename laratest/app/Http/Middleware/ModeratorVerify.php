@@ -15,23 +15,22 @@ class ModeratorVerify
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->has('username'))
-        {
+       
             if($request->session()->get('type')=='Moderator' )
             {
 
                 return $next($request);
             }
-            else
+            elseif($request->session()->get('type')=='Admin' )
             {
 
-                $request->session()->flash('userPermissionError',' Not an Moderator Account');
-                return redirect()->route('dashboard');
+                return $next($request);
             }
-        }
+           
+        
         else
         {
-            $request->session()->flash('errorMsg','Session Validation Error!');
+            $request->session()->flash('errorMsg','Session M Validation Error!');
             return redirect()->route('login');
 
         }
