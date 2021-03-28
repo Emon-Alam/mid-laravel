@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Moderator;
 use Validator;
+use App\Content;
 use Illuminate\Http\Request;
 
 class ModeratorController extends Controller

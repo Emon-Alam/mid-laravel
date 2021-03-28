@@ -44,11 +44,22 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/home/delete/moderator/{id}', 'AdminController@delete')->name('moderator.delete');
     Route::post('/home/delete/moderator/{id}', 'AdminController@destroy');
 
+    Route::get('/home/create/content', 'AdminController@create')->name('ccreate');
+    Route::post('/home/create/content', 'AdminController@store');
+
+    Route::get('/home/list/content', 'AdminController@Clist')->name('clist');
+
 });
 Route::group(['middleware'=>'moderator'],function(){
 
     Route::get('/home', 'HomeController@index')->name('index');
     Route::get('/home/moderator/Profile', 'ModeratorController@show')->name('profile');
+
+    
+    Route::get('/home/create/content', 'AdminController@create')->name('ccreate');
+    Route::post('/home/create/content', 'AdminController@store');
+
+    Route::get('/home/list/content', 'AdminController@Clist')->name('clist');
 });
 
 });

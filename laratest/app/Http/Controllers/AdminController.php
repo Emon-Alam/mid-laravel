@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Admin;
+use App\Content;
 use App\Moderator;
 use Validator;
 use Illuminate\Http\Request;
@@ -29,6 +30,29 @@ class AdminController extends Controller
         return view('home.list')->with('list', $name);
  */
     }
+    public function create(){
+        return view('home.create');
+    }
+
+    public function store(Request $req){
+
+        
+            $user = new Content();
+            $user->mname         = $req->mname;
+            $user->category         = $req->category;
+           
+            
+            $user->save();
+            return redirect()->route('clist');
+             } 
+
+             public function clist(Request $req){
+
+                
+                $name = Content::all();
+                return view('home.mlist')->with('list', $name);
+        
+            }
 
     public function userlist(Request $req){
 
