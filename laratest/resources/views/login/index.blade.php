@@ -4,7 +4,7 @@
 	<title>Login page</title>
 </head>
 <body>
-	<h1></h1>
+	<h1>Welcome to FTP server</h1>
 
 	<form method="post">
          @csrf

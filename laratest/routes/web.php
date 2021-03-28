@@ -29,6 +29,15 @@ Route::post('/registration', 'RegController@store')->name('reg');
 
 Route::group(['middleware'=> 'sess'], function(){
 
-    Route::get('/home', 'HomeController@index')->name('index');
+    Route::group(['middleware'=>'admin'],function(){
 
+    Route::get('/home', 'HomeController@index')->name('index');
+    Route::get('/registration', 'RegController@index')->name('registration');
+    Route::post('/registration', 'RegController@store')->name('reg');
+});
+Route::group(['middleware'=>'moderator'],function(){
+
+    Route::get('/home', 'HomeController@index')->name('index');
+    
+});
 });
