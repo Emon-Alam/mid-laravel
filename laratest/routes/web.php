@@ -27,6 +27,17 @@ Route::get('/logout', 'LogoutController@index')->name('logout');
 Route::get('/registration', 'RegController@index')->name('registration');
 Route::post('/registration', 'RegController@store')->name('reg');
 
+Route::get('/home/list/content/movies/eng-sub', 'ContentController@MoviesE')->name('movieliste');
+Route::get('/home/list/content/movies/hindi-sub', 'ContentController@MoviesH')->name('movielisth');
+Route::get('/home/list/content/games', 'ContentController@Games')->name('gamelist');
+Route::get('/home/list/content/tv_series/eng-sub', 'ContentController@TV_seriesE')->name('tvliste');
+Route::get('/home/list/content/tv_series/hindi-sub', 'ContentController@TV_seriesH')->name('tvlisth');
+Route::get('/home/list/content/software', 'ContentController@Software')->name('softlist');
+
+
+Route::get('/login/search/content','SearchController@index');
+Route::get('/login/search/action/content','SearchController@search')->name('csearch');
+
 Route::group(['middleware'=>'sess'],function(){
 
 Route::group(['middleware'=>'admin'],function(){
@@ -34,8 +45,8 @@ Route::group(['middleware'=>'admin'],function(){
 
     Route::get('/home', 'HomeController@index')->name('index');
 
-    Route::get('/registration', 'RegController@index')->name('registration');
-    Route::post('/registration', 'RegController@store')->name('reg');
+    Route::get('/add', 'RegController@addindex')->name('addmoderator');
+    Route::post('/add', 'RegController@add')->name('add');
 
     Route::get('/home/admin/Profile', 'AdminController@show')->name('Aprofile');
 
@@ -54,6 +65,7 @@ Route::group(['middleware'=>'admin'],function(){
 
 });
 Route::group(['middleware'=>'moderator'],function(){
+    
 
     Route::get('/home', 'HomeController@index')->name('index');
     Route::get('/home/moderator/Profile', 'ModeratorController@show')->name('profile');

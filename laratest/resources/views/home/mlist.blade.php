@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View User List</title>
+    <title>View Content List</title>
 </head>
 <body>
-    <h1>User list</h1>
+    <h1>Content List</h1>
     <a href="{{route('index')}}"><button >Back</button></a> |
     <a href="{{route('logout')}}"><button >Logout</button></a>
 
@@ -15,6 +15,7 @@
         <tr>
             <td>ID</td>
             <td>Movie NAME</td>
+            <td>Subtitle</td>
             <td>Category</td>
             
         </tr>
@@ -23,10 +24,11 @@
         <tr>
             <td>{{ $list[$i]['id'] }}</td>
             <td>{{ $list[$i]['mname'] }}</td>
+            <td>{{ $list[$i]['subtitle'] }}</td>
             <td>{{ $list[$i]['category'] }}</td>
             
             <td>
-                
+            <a href="/home/delete/category/{{ $list[$i]['id'] }}">Delete</a>
                 
                 
             </td>

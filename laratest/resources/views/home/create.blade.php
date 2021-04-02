@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login page</title>
 </head>
 <body>
-<h1> Admin {{session('username')}}</h1>
+<h1> {{session('type')}}-{{session('username')}}</h1>
 
-	<a href="{{route('registration')}}"><h4>Add Moderator</h4></a>
+    <a href="{{route('index')}}"><button >Back</button></a>
 	<a href="{{route('logout')}}"><button >Logout</button></a>
+
     <h1>Adding New MOvie</h1>
 
 <form action="" method="post">
 @csrf 
     <table style="text-align:right;">
-        <tr>
-            <td>Movie Name:</td>
-            <td ><input type="text" name="mname" value="{{old('mnaem')}}" id=""></td>
-        </tr>
+        
         <tr>
             <td>Category:</td>
             <td  align="left" >
@@ -29,7 +26,15 @@
                 </select>
             </td>
         </tr>
-
+        <tr>
+            <td> Name:</td>
+            <td ><input type="text" name="mname" value="{{old('mnaem')}}" id=""></td>
+        </tr>
+        <tr>
+            <td>Subtitle:</td>
+            <td ><input type="text" name="subtitle" value="{{old('subtitle')}}" id=""></td>
+        </tr>
+        
 
 
     </table>

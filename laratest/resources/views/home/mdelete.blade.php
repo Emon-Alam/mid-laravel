@@ -4,9 +4,8 @@
 	<title>contant delete</title>
 </head>
 <body>
-<h1> Admin {{session('username')}}</h1>
+<h1> {{session('type')}}-{{session('username')}}</h1>
 
-	<a href="{{route('registration')}}"><h4>Add Moderator</h4></a>
 	<a href="{{route('logout')}}"><button >Logout</button></a>
 <table>
      <tr>
@@ -17,7 +16,7 @@
      </tr>
      <tr>
              <td>Category</td>
-            <td>{{ $user['cetagory']}}</td>
+            <td>{{ $user['category']}}</td>
         </tr>
         
      <td>

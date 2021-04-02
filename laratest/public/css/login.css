@@ -1,0 +1,52 @@
+* 
+  
+  .left,
+  .middle,
+  .right {
+    padding: 10px;
+    height: 400px; /* Should be removed. Only for demonstration */
+    overflow: scroll;
+  }
+  
+  /* Style the left column */
+  .left {
+    grid-area: left;
+  
+  }
+  
+  /* Style the middle column */
+  .middle {
+    grid-area: middle;
+  }
+  
+  /* Style the right column */
+  .right {
+    grid-area: right;
+  
+  }
+  
+  /* Style the footer */
+  .footer {
+    grid-area: footer;
+    background-color: #85C1E9;
+    padding: 10px;
+    text-align: center;
+  }
+
+ tr {
+    text-align: right;
+   }
+
+  th, td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+ 

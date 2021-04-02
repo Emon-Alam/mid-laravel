@@ -40,13 +40,14 @@ class AdminController extends Controller
             $user = new Content();
             $user->mname         = $req->mname;
             $user->category         = $req->category;
-           
+            $user->subtitle         = $req->subtitle;
             
             $user->save();
             return redirect()->route('clist');
+            $req->session()->flash('msg', 'content Added successfully...');
              } 
 
-             public function clist(Request $req){
+    public function clist(Request $req){
 
                 
                 $name = Content::all();
@@ -77,15 +78,16 @@ class AdminController extends Controller
 
     public function cdelete($id){
 
-        $user = Category::find($id);
+        $user = Content::find($id);
         return view('home.mdelete')->with('user', $user);
     }
 
     public function cdestroy($id, Request $req){
 
-        if( Category::destroy($id)){
+        if( Content::destroy($id)){
+            
+            return redirect()->route('clist');
             $req->session()->flash('msg', 'content removed successfully...');
-            return redirect()->route('logout');
         }else{
             return redirect('/home/delete/category/'.$id);
         }
